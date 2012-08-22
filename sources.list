@@ -1,0 +1,76 @@
+# ----------------------------------------------------------------------
+# /etc/apt/sources.list
+#
+# Konfigurationsdatei für die Paketverwaltungsrepositories für Debian 6
+# "Squeeze". Kontrolle darüber von welchen Repositories installiert wird
+# kann mit preferences im gleichen Ordner kontrolliert werden.
+#
+# Damit Dotdeb als Repository verwendet werden kann muss der GPG
+# Schlüssel hinzugefügt werden. Instruktionen finden sich auf:
+# {@link http://www.dotdeb.org/instructions/}
+#
+# So wird der Schlüssel für Dotdeb hinzugefügt:
+# wget http://www.dotdeb.org/dotdeb.gpg && cat dotdeb.gpg | apt-key add – && rm –f dotdeb.gpg
+#
+# Damit MariaDB als Repository verwendet werden kann muss der GPG
+# Schlüssel hinzugefügt werden. Instruktionen finden sich auf:
+# {@link http://kb.askmonty.org/en/installing-mariadb-deb-files/}
+#
+# So wird der Schlüssel für MariaDB hinzugefügt:
+# apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+#
+# Um immer up-to-date zu bleiben ist es sehr empfehlenswert die RSS
+# feeds zu abonnieren, oder sich in entsprechende Mailinglisten einzu-
+# tragen!
+#
+#     _           _         _       
+#    | |         | |       | |      
+#    | |__   ___ | |__   __| | ___  
+#    | '_ \ / _ \| '_ \ / _` |/ _ \ 
+#    | |_) | (_) | |_) | (_| | (_) |
+#    |_.__/ \___/|_.__/ \__,_|\___/ 
+#
+# @author Richard Fussenegger <richard@fussenegger.info>
+# @link http://richard.fussenegger.info/
+# @link http://bobdo.net/
+# @link http://www.dotdeb.org/
+# @see /etc/apt/preferences
+# @copyright No Copyright
+# @license No License
+# ----------------------------------------------------------------------
+
+# ----------------------------------------------------------------------
+# DEBIAN STABLE
+# ----------------------------------------------------------------------
+deb http://ftp.at.debian.org/debian/ squeeze main non-free contrib
+deb-src http://ftp.at.debian.org/debian/ squeeze main non-free contrib
+
+deb http://security.debian.org/ squeeze/updates main non-free contrib
+deb-src http://security.debian.org/ squeeze/updates main non-free contrib
+
+deb http://ftp.at.debian.org/debian/ squeeze-updates main non-free contrib
+deb-src http://ftp.at.debian.org/debian/ squeeze-updates main non-free contrib
+
+# ----------------------------------------------------------------------
+# DEBIAN TESTING
+# ----------------------------------------------------------------------
+deb http://ftp.at.debian.org/debian/ testing main non-free contrib
+deb-src http://ftp.at.debian.org/debian/ testing main non-free contrib
+
+# ----------------------------------------------------------------------
+# DOTDEB
+# ----------------------------------------------------------------------
+deb http://packages.dotdeb.org squeeze all
+deb-src http://packages.dotdeb.org squeeze all
+
+# ----------------------------------------------------------------------
+# DOTDEB PHP 5.4
+# ----------------------------------------------------------------------
+deb http://packages.dotdeb.org squeeze-php54 all
+deb-src http://packages.dotdeb.org squeeze-php54 all
+
+# ----------------------------------------------------------------------
+# MARIADB 5.5
+# ----------------------------------------------------------------------
+deb http://mirror.switch.ch/mirror/mariadb/repo/5.5/debian squeeze main
+deb-src http://mirror.switch.ch/mirror/mariadb/repo/5.5/debian squeeze main

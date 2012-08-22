@@ -1,0 +1,50 @@
+# ----------------------------------------------------------------------
+# /etc/apt/preferences
+#
+# Globale Prioritätenkonfiguration für Repositorien.
+#
+# Durch Erstellung von Prioritäten kann genau bestimmt werden von welchem
+# Repoistorium apt bzw. aptitude Pakete installieren soll.
+#
+#     _           _         _       
+#    | |         | |       | |      
+#    | |__   ___ | |__   __| | ___  
+#    | '_ \ / _ \| '_ \ / _` |/ _ \ 
+#    | |_) | (_) | |_) | (_| | (_) |
+#    |_.__/ \___/|_.__/ \__,_|\___/ 
+#
+# @author Richard Fussenegger <richard@fussenegger.info>
+# @link http://richard.fussenegger.info/
+# @link http://bobdo.net/
+# @copyright No Copyright
+# @license No License
+# @source https://github.com/Fleshgrinder/Bachelorarbeit-2
+# ----------------------------------------------------------------------
+
+# Pakete von Dotdeb sollen immer gegenüber allen anderen Repositorien
+# bevorzugt werden.
+Package: *
+Pin: Origin packages.dotdeb.org
+Pin-Priority: 900
+
+# MariaDB hat auch eine höhere Priorität gegenüber Debian.
+Package: *
+Pin: Origin mirror.switch.ch
+Pin-Priority: 750
+
+# Insofern kein Paket bei Dotdeb vorhanden ist soll das Paket aus dem
+# stable branch vom Debian Repositorium installiert werden.
+Package: *
+Pin: release o=Debian,a=stable
+Pin-Priority: 500
+
+# Durch die Angabe von "-t testing" ist es möglich ein Paket aus dem
+# testing branch vom Debian Repositorium zu installieren.
+Package: *
+Pin: release o=Debian,a=testing
+Pin-Priority: 250
+
+# Fallback
+Package: *
+Pin: release o=Debian
+Pin-Priority: -1
