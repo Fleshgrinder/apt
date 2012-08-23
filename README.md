@@ -1,4 +1,5 @@
 # apt
+My personal apt / aptitude configuration.
 ## Importing GPG keys for Dotdeb and MariaDB
 ```shell
 wget http://www.dotdeb.org/dotdeb.gpg

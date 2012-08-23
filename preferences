@@ -1,45 +1,45 @@
-# ----------------------------------------------------------------------
 # /etc/apt/preferences
+
+# ----------------------------------------------------------------------
+# Global preferences for apt / aptitude repositories. Preferences enable
+# you to control fromw here apt / aptitude will install packages.
 #
-# Globale Prioritätenkonfiguration für Repositorien.
+# ----------------------------------------------------------------------
 #
-# Durch Erstellung von Prioritäten kann genau bestimmt werden von welchem
-# Repoistorium apt bzw. aptitude Pakete installieren soll.
+#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#                    Version 2, December 2004
+# 
+# Copyright (c) 2012 Richard Fussenegger <richard@fussenegger.info>
 #
-#     _           _         _       
-#    | |         | |       | |      
-#    | |__   ___ | |__   __| | ___  
-#    | '_ \ / _ \| '_ \ / _` |/ _ \ 
-#    | |_) | (_) | |_) | (_| | (_) |
-#    |_.__/ \___/|_.__/ \__,_|\___/ 
+# Everyone is permitted to copy and distribute verbatim or modified
+# copies of this license document, and changing it is allowed as long
+# as the name is changed.
 #
-# @author Richard Fussenegger <richard@fussenegger.info>
-# @link http://richard.fussenegger.info/
-# @link http://bobdo.net/
-# @copyright No Copyright
-# @license No License
-# @source https://github.com/Fleshgrinder/Bachelorarbeit-2
+#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+#
+#  0. You just DO WHAT THE FUCK YOU WANT TO.
+#
 # ----------------------------------------------------------------------
 
-# Pakete von Dotdeb sollen immer gegenüber allen anderen Repositorien
-# bevorzugt werden.
-Package: *
-Pin: Origin packages.dotdeb.org
-Pin-Priority: 900
-
-# MariaDB hat auch eine höhere Priorität gegenüber Debian.
+# Packages from www.switch.ch shall always be used first (MariaDB).
 Package: *
 Pin: Origin mirror.switch.ch
+Pin-Priority: 900
+
+# Dotdeb packages shall be the second most prioritized repository.
+Package: *
+Pin: Origin packages.dotdeb.org
 Pin-Priority: 750
 
-# Insofern kein Paket bei Dotdeb vorhanden ist soll das Paket aus dem
-# stable branch vom Debian Repositorium installiert werden.
+# If both have nothing for us fall back to the standard Debian stable
+# branch for packages.
 Package: *
 Pin: release o=Debian,a=stable
 Pin-Priority: 500
 
-# Durch die Angabe von "-t testing" ist es möglich ein Paket aus dem
-# testing branch vom Debian Repositorium zu installieren.
+# Packages from the testing branch of Debian can only be installed by
+# sepcifying the -t option (e.g. "aptitude -t testing install xyz").
 Package: *
 Pin: release o=Debian,a=testing
 Pin-Priority: 250
